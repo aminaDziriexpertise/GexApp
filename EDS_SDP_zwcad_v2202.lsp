@@ -40,11 +40,15 @@
 			
 			;;;  Surfaces  Planchers avant déductions 	
 			(command "-layer" "E" 0 "g" "*" "l" "GEX_EDS_sdp_teinte_contour" "l" "GEX_EDS_sdp_SDP_su" "")""
-			
+			layer n GEX_EDS_sdp_6-combles_su _color 7 GEX_EDS_sdp_6-combles_su
 			(foreach element liste	
 				(command "-calque" "ch" "0" "" "")
 				(command "-calque" "l" element "")
-				
+		
+;; #DOC.SendCommand("(setq SSET (ssget))(setq CNT -1)(while (setq OBJ (ssname SSET (setq CNT (1+ CNT))))(setvar 'clayer (cdr (assoc 8 (entget OBJ))))(command \"-hatchedit\" OBJ \"b\" \"p\" \"y\"))(setvar \"cmdecho\" OLDCE) ")
+; Ajouter code:      DOC.SendCommand("(SSGET\"_x\"'((-4 . \"<OR\")(0 . \"*TEXT,*HATCH\")(-4 . \"<AND\")(0 . \"INSERT\")(66 . 1)(-4 . \"AND>\")(-4 . \"OR>\"))) ")
+; DOC.SendCommand("SELECT (SSGET\"_p\")  ")
+				; DOC.SendCommand("while (setq OBJ (ssname SSET (setq CNT (1+ CNT)")
 				(setq sel (ssget "X" (list (cons -4 "<or")(cons -4 "<and") (cons 0 "LWPOLYLINE")(cons 8 element) 
 											(cons -4 "and>")(cons -4 "<and") (cons 0 "CIRCLE")(cons 8 element)
 											(cons -4 "and>") (cons -4 "or>"))))
@@ -213,7 +217,7 @@
 	(setq ind 0 surftotal 0 surfad 0 somme 0) ; initialiser les variables de calcul 
 
 	(if (/= sel1 nil)						;si l'ensemble des elements du calque n'est pas vide 
-		(while (setq nm (ssname sel1 ind))			;Recuperartion de chaque element de la liste issue de ssget (calque)
+		(while (setq nm (ssname sel1 ind))			;Recuperation de chaque element de la liste issue de ssget (calque)
 			(setq s1 (cdr (assoc -1 (entget nm))))	;recupere l'entité à partir de son nom 
 			(setq entite (entget nm))
 			(setq ind1 0 totx 0 toty 0)

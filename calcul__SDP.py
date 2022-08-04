@@ -2,6 +2,7 @@
 #Import needed modules
 import os
 from re import T
+from click import command
 import comtypes.client
 from comtypes import COMError
 from comtypes.client import CreateObject, GetModule, GetActiveObject
@@ -41,32 +42,162 @@ def sdp():
      
         def Affiche__layer():
                 #_________________________tester l'affichage du  LAYER____________________________
-                layers_nums = acad.ActiveDocument.Layers.count   #  {{{acad.doc.Layers.count}}} are the same 
-                # The total number of layers contained in the current file model space
+                layers_nums = acad.ActiveDocument.Layers.count   #  {{{acad.doc.Layers.count}}} are the same  # The total number of layers contained in the current file model space
                 layers_names = [acad.ActiveDocument.Layers.Item(i).Name for i in range(layers_nums)] #layers_names = str(acad.doc.Layers.Item(i).Name)
-                print('layer_names are: ...', layers_names)
-                # index = layers_names.index("GEX_EDS___Amina_Layer" ) 
-                # acad.ActiveDocument.ActiveLayer = acad.ActiveDocument.Layers.Item(index)
-                # print("index is ....",index)
-
+                #print('layer_names are: ...', layers_names)
+                #index = layers_names.index("GEX_EDS_sdp_2-tremie" ) 
+                #acad.ActiveDocument.ActiveLayer = acad.ActiveDocument.Layers.Item(index)
+                #print("index is ....",index)
         
+
         #def iterated_index(layers_names, calques):
         def iterated_index(layers_names, element):
-
               iterated_index_list = []
-             
+              ##___________________________style__________________________
+              acad.TextStyleName = "SURF"
+              #acad.ActiveDocument.ActiveTextStyle.SetFont("Kaiti", False, False, 1, 0 ou 0) # acad.ActiveDocument.ActiveTextStyle.SetFont(Typeface, Bold, Italic, charSet, PitchandFamily) 
+
+
               for i in range(len(layers_names)):
                    if layers_names[i] == element:
                       iterated_index_list.append(i)
                    else:
-                      LayerObj = acad.ActiveDocument.Layers.Add("GEX_EDS_testttt")
+                      LayerObj = acad.ActiveDocument.Layers.Add(element)
                       acad.ActiveDocument.ActiveLayer = LayerObj
+                      iterated_index_list.append(i)
               return iterated_index_list
-        layers_nums = acad.ActiveDocument.Layers.count 
-        layers_names = [acad.ActiveDocument.Layers.Item(i).Name for i in range(layers_nums)] 
-        #iterated_index_list = iterated_index(layers_names, "GEX_EDS_testttt")
-        #print(iterated_index_list,"test___list")
-       
+              
+
+
+        def iterated_index_layer():
+              layers_nums = acad.ActiveDocument.Layers.count   #  {{{acad.doc.Layers.count}}} are the same  # The total number of layers contained in the current file model space
+              layers_names = [acad.ActiveDocument.Layers.Item(i).Name for i in range(layers_nums)] #layers_names = str(acad.doc.Layers.Item(i).Name)
+              if (acad.ActiveDocument.ActiveLayer == acad.ActiveDocument.Layers.Item(layers_names.index("GEX_EDS_sdp_2-tremie" ))):
+                 print("index is ....", layers_names.index("GEX_EDS_sdp_2-tremie" ) )
+              else:
+                  print("Create Layer""GEX_EDS_sdp_2-tremie")
+                  # Add a new layer, the layer name is LAYER .
+                  LayerObj = acad.ActiveDocument.Layers.Add("GEX_EDS_sdp_2-tremie")
+                  # Set the LAYER  layer as the current layer.
+                  acad.ActiveDocument.ActiveLayer = LayerObj
+                  
+              if (acad.ActiveDocument.ActiveLayer == acad.ActiveDocument.Layers.Item(layers_names.index("GEX_EDS_sdp_3-h-180" ))):
+                 print("index is ....", layers_names.index("GEX_EDS_sdp_3-h-180" ) )
+              else:
+                  print("Create Layer""GEX_EDS_sdp_3-h-180")
+                  # Add a new layer, the layer name is LAYER .
+                  LayerObj = acad.ActiveDocument.Layers.Add("GEX_EDS_sdp_3-h-180")
+                  # Set the LAYER  layer as the current layer.
+                  acad.ActiveDocument.ActiveLayer = LayerObj
+              
+              if (acad.ActiveDocument.ActiveLayer == acad.ActiveDocument.Layers.Item(layers_names.index("GEX_EDS_sdp_5-pk" ))):
+                 print("index is ....", layers_names.index("GEX_EDS_sdp_5-pk" ) )
+              else:
+                  print("Create Layer""GEX_EDS_sdp_5-pk")
+                  # Add a new layer, the layer name is LAYER .
+                  LayerObj = acad.ActiveDocument.Layers.Add("GEX_EDS_sdp_5-pk")
+                  # Set the LAYER  layer as the current layer.
+                  acad.ActiveDocument.ActiveLayer = LayerObj
+
+              if (acad.ActiveDocument.ActiveLayer == acad.ActiveDocument.Layers.Item(layers_names.index("GEX_EDS_sdp_5-pk" ))):
+                 print("index is ....", layers_names.index("GEX_EDS_sdp_6-combles" ) )
+              else:
+                  print("Create Layer""GEX_EDS_sdp_6-combles")
+                  # Add a new layer, the layer name is LAYER .
+                  LayerObj = acad.ActiveDocument.Layers.Add("GEX_EDS_sdp_6-combles")
+                  # Set the LAYER  layer as the current layer.
+                  acad.ActiveDocument.ActiveLayer = LayerObj
+
+              if (acad.ActiveDocument.ActiveLayer == acad.ActiveDocument.Layers.Item(layers_names.index("GEX_EDS_sdp_7-lt" ))):
+                 print("index is ....", layers_names.index("GEX_EDS_sdp_7-lt" ) )
+              else:
+                  print("Create Layer""GEX_EDS_sdp_7-lt")
+                  # Add a new layer, the layer name is LAYER .
+                  LayerObj = acad.ActiveDocument.Layers.Add("GEX_EDS_sdp_7-lt")
+                  # Set the LAYER  layer as the current layer.
+                  acad.ActiveDocument.ActiveLayer = LayerObj
+
+              if (acad.ActiveDocument.ActiveLayer == acad.ActiveDocument.Layers.Item(layers_names.index("GEX_EDS_sdp_8-cave" ))):
+                 print("index is ....", layers_names.index("GEX_EDS_sdp_8-cave" ) )
+              else:
+                  print("Create Layer""GEX_EDS_sdp_8-cave")
+                  # Add a new layer, the layer name is LAYER .
+                  LayerObj = acad.ActiveDocument.Layers.Add("GEX_EDS_sdp_8-cave")
+                  # Set the LAYER  layer as the current layer.
+                  acad.ActiveDocument.ActiveLayer = LayerObj
+
+              if (acad.ActiveDocument.ActiveLayer == acad.ActiveDocument.Layers.Item(layers_names.index("GEX_EDS_sdp_teinte_contour" ))):
+                 print("index is ....", layers_names.index("GEX_EDS_sdp_teinte_contour" ) )
+              else:
+                  print("Create Layer""GEX_EDS_sdp_teinte_contour")
+                  # Add a new layer, the layer name is LAYER .
+                  LayerObj = acad.ActiveDocument.Layers.Add("GEX_EDS_sdp_teinte_contour")
+                  # Set the LAYER  layer as the current layer.
+                  acad.ActiveDocument.ActiveLayer = LayerObj
+
+              if (acad.ActiveDocument.ActiveLayer == acad.ActiveDocument.Layers.Item(layers_names.index("GEX_EDS_sdp_SDP_su" ))):
+                 print("index is ....", layers_names.index("GEX_EDS_sdp_SDP_su" ) )
+              else:
+                  print("Create Layer""GEX_EDS_sdp_SDP_su")
+                  # Add a new layer, the layer name is LAYER .
+                  LayerObj = acad.ActiveDocument.Layers.Add("GEX_EDS_sdp_SDP_su")
+                  # Set the LAYER  layer as the current layer.
+                  acad.ActiveDocument.ActiveLayer = LayerObj
+
+              if (acad.ActiveDocument.ActiveLayer == acad.ActiveDocument.Layers.Item(layers_names.index("GEX_EDS_sdp_2-tremie_su" ))):
+                 print("index is ....", layers_names.index("GEX_EDS_sdp_2-tremie_su" ) )
+              else:
+                  print("Create Layer""GEX_EDS_sdp_2-tremie_su")
+                  # Add a new layer, the layer name is LAYER .
+                  LayerObj = acad.ActiveDocument.Layers.Add("GEX_EDS_sdp_2-tremie_su")
+                  # Set the LAYER  layer as the current layer.
+                  acad.ActiveDocument.ActiveLayer = LayerObj
+
+              if (acad.ActiveDocument.ActiveLayer == acad.ActiveDocument.Layers.Item(layers_names.index("GEX_EDS_sdp_3-h-180_su" ))):
+                 print("index is ....", layers_names.index("GEX_EDS_sdp_3-h-180_su" ) )
+              else:
+                  print("Create Layer""GEX_EDS_sdp_3-h-180_su")
+                  # Add a new layer, the layer name is LAYER .
+                  LayerObj = acad.ActiveDocument.Layers.Add("GEX_EDS_sdp_3-h-180_su")
+                  # Set the LAYER  layer as the current layer.
+                  acad.ActiveDocument.ActiveLayer = LayerObj
+
+              if (acad.ActiveDocument.ActiveLayer == acad.ActiveDocument.Layers.Item(layers_names.index("GEX_EDS_sdp_5-pk_su" ))):
+                 print("index is ....", layers_names.index("GEX_EDS_sdp_5-pk_su" ) )
+              else:
+                  print("Create Layer""GEX_EDS_sdp_5-pk_su")
+                  # Add a new layer, the layer name is LAYER .
+                  LayerObj = acad.ActiveDocument.Layers.Add("GEX_EDS_sdp_5-pk_su")
+                  # Set the LAYER  layer as the current layer.
+                  acad.ActiveDocument.ActiveLayer = LayerObj
+
+              if (acad.ActiveDocument.ActiveLayer == acad.ActiveDocument.Layers.Item(layers_names.index("GEX_EDS_sdp_6-combles_su" ))):
+                 print("index is ....", layers_names.index("GEX_EDS_sdp_6-combles_su" ) )
+              else:
+                  print("Create Layer""GEX_EDS_sdp_6-combles_su")
+                  # Add a new layer, the layer name is LAYER .
+                  LayerObj = acad.ActiveDocument.Layers.Add("GEX_EDS_sdp_6-combles_su")
+                  # Set the LAYER  layer as the current layer.
+                  acad.ActiveDocument.ActiveLayer = LayerObj
+
+              if (acad.ActiveDocument.ActiveLayer == acad.ActiveDocument.Layers.Item(layers_names.index("GEX_EDS_sdp_7-lt_su" ))):
+                 print("index is ....", layers_names.index("GEX_EDS_sdp_7-lt_su" ) )
+              else:
+                  print("Create Layer""GEX_EDS_sdp_7-lt_su")
+                  # Add a new layer, the layer name is LAYER .
+                  LayerObj = acad.ActiveDocument.Layers.Add("GEX_EDS_sdp_7-lt_su")
+                  # Set the LAYER  layer as the current layer.
+                  acad.ActiveDocument.ActiveLayer = LayerObj
+
+              if (acad.ActiveDocument.ActiveLayer == acad.ActiveDocument.Layers.Item(layers_names.index("GEX_EDS_sdp_8-cave_su" ))):
+                 print("index is ....", layers_names.index("GEX_EDS_sdp_8-cave_su" ) )
+              else:
+                  print("Create Layer""GEX_EDS_sdp_8-cave_su")
+                  # Add a new layer, the layer name is LAYER .
+                  LayerObj = acad.ActiveDocument.Layers.Add("GEX_EDS_sdp_8-cave_su")
+                  # Set the LAYER  layer as the current layer.
+                  acad.ActiveDocument.ActiveLayer = LayerObj
+
 
         def if__calque__exist():
 
@@ -86,7 +217,6 @@ def sdp():
              
              #Clr.SetRGB(255,0,0)
             # LayerObj.TrueColor = Clr
-            
 
           #_________Tester calque "GEX_EDS_sdp_3-h-180"__________
            if layers_names == ['GEX_EDS_sdp_3-h-180']:
@@ -249,19 +379,30 @@ def sdp():
              acad.TextStyleName = "SURF"
 
 
+        #_________________________________________________________________________
+        #_________________________________________________________________________
+        #_________________________________________________________________________
+
+        
 
         #_________________________Surfaces  Planchers avant déductions____________ 
+        
         def surface_plancher_ded():
-              get__layer_teinte_contour = acad.ActiveDocument.SendCommand('._-layer E 0 g * l GEX_EDS_sdp_teinte_contour l GEX_EDS_sdp_SDP_su ' ) 
+         
+              get__layer_teinte_contour = acad.ActiveDocument.SendCommand('.-layer E "0" g * l GEX_EDS_sdp_teinte_contour l GEX_EDS_sdp_SDP_su \n ' ) 
                 # for i in element:
                     #get__calque_0 = acad.ActiveDocument.SendCommand("_-calque" "chr(0) ") 
                     #get__calque_l = acad.ActiveDocument.SendCommand("_-calque" "l(element) " )  
-             
-              print("_Surfaces  Planchers avant déductions est : ", get__layer_teinte_contour)
-              acad.ActiveDocument.SendCommand('._-hachures p s a s n a o i o h o ' '\n')
-              acad.ActiveDocument.SendCommand('._clayer GEX_EDS_sdp_teinte_contour ' '\n')
-              acad.ActiveDocument.SendCommand('._-hachures s sel ' )
-              acad.ActiveDocument.SendCommand('._clayer GEX_EDS_sdp_SDP_su ' '\n')
+              for element in layers_names:
+                  acad.ActiveDocument.SendCommand('-CALQUE chr(0)')
+                  acad.ActiveDocument.SendCommand('-CALQUE l element ')
+                  print("_Surfaces  Planchers avant déductions est : ", get__layer_teinte_contour)
+                  sel = acad.ActiveDocument.SendCommand("(SSGET\"_X\"'((-4 . \"<OR\")(-4 . \"<AND\")(0 . \"*LWPOLYLINE\")(8 . \"element\")(-4 . \"AND>\")(0 . \"CIRCLE\")(8 . \"element\")(-4 . \"AND>\")(-4 . \"OR>\"))) ")
+                  
+                  acad.ActiveDocument.SendCommand('._HACHURES p s a s n a o i o h o ' '\n')
+                  acad.ActiveDocument.SendCommand('._CLAYER GEX_EDS_sdp_teinte_contour ' '\n')
+                  acad.ActiveDocument.SendCommand('._HACHURES s sel ' )
+                  acad.ActiveDocument.SendCommand('._CLAYER GEX_EDS_sdp_SDP_su ' '\n')
               
 
 
@@ -269,52 +410,52 @@ def sdp():
         def surface_vides():
               get__layer_teinte_contour = acad.ActiveDocument.SendCommand('._-layer E 0 g * l GEX_EDS_sdp_2-tremie l GEX_EDS_sdp_2-tremie_su ' ) 
               print("_Surfaces  Planchers avant déductions est : ", get__layer_teinte_contour)
-              acad.ActiveDocument.SendCommand('._-hachures p s a s n a o i o h o ' '\n')
-              acad.ActiveDocument.SendCommand('._clayer GEX_EDS_sdp_teinte_contour ' '\n')
-              acad.ActiveDocument.SendCommand('._-hachures s sel ' )
-              acad.ActiveDocument.SendCommand('._clayer GEX_EDS_sdp_SDP_su ' '\n')
+              acad.ActiveDocument.SendCommand('._HACHURES p s a s n a o i o h o ' '\n')
+              acad.ActiveDocument.SendCommand('._CLAYER GEX_EDS_sdp_teinte_contour ' '\n')
+              acad.ActiveDocument.SendCommand('._HACHURES s sel ' )
+              acad.ActiveDocument.SendCommand('._CLAYER GEX_EDS_sdp_SDP_su ' '\n')
               
         #__________________________    Surfaces dont h < 1.80 m   _ _____________________ 
         def surface_h_180():
               get__layer_teinte_contour = acad.ActiveDocument.SendCommand('._-layer E 0 g * l GEX_EDS_sdp_2-tremie l GEX_EDS_sdp_2-tremie_su ' ) 
               print("_Surfaces  Planchers avant déductions est : ", get__layer_teinte_contour)
-              acad.ActiveDocument.SendCommand('._-hachures p s a s n a o i o h o ' '\n')
-              acad.ActiveDocument.SendCommand('._clayer GEX_EDS_sdp_teinte_contour ' '\n')
-              acad.ActiveDocument.SendCommand('._-hachures s sel ' )
-              acad.ActiveDocument.SendCommand('._clayer GEX_EDS_sdp_SDP_su ' '\n')
+              acad.ActiveDocument.SendCommand('._HACHURES p s a s n a o i o h o ' '\n')
+              acad.ActiveDocument.SendCommand('._CLAYER GEX_EDS_sdp_teinte_contour ' '\n')
+              acad.ActiveDocument.SendCommand('._HACHURES s sel ' )
+              acad.ActiveDocument.SendCommand('._CLAYER GEX_EDS_sdp_SDP_su ' '\n')
         #__________________________    Surfaces Stationnement    ________________________
         def surface_Stationnement():
               get__layer_teinte_contour = acad.ActiveDocument.SendCommand('._-layer E 0 g * l GEX_EDS_sdp_2-tremie l GEX_EDS_sdp_2-tremie_su ' ) 
               print("_Surfaces  Planchers avant déductions est : ", get__layer_teinte_contour)
-              acad.ActiveDocument.SendCommand('._-hachures p s a s n a o i o h o ' '\n')
-              acad.ActiveDocument.SendCommand('._clayer GEX_EDS_sdp_teinte_contour ' '\n')
-              acad.ActiveDocument.SendCommand('._-hachures s sel ' )
-              acad.ActiveDocument.SendCommand('._clayer GEX_EDS_sdp_SDP_su ' '\n') 
+              acad.ActiveDocument.SendCommand('._HACHURES p s a s n a o i o h o ' '\n')
+              acad.ActiveDocument.SendCommand('._CLAYER GEX_EDS_sdp_teinte_contour ' '\n')
+              acad.ActiveDocument.SendCommand('._HACHURES s sel ' )
+              acad.ActiveDocument.SendCommand('._CLAYER GEX_EDS_sdp_SDP_su ' '\n') 
         #_______________________________    Surfaces Combles    _________________________
         def surface_Combles():
               get__layer_teinte_contour = acad.ActiveDocument.SendCommand('._-layer E 0 g * l GEX_EDS_sdp_2-tremie l GEX_EDS_sdp_2-tremie_su ' ) 
               print("_Surfaces  Planchers avant déductions est : ", get__layer_teinte_contour)
-              acad.ActiveDocument.SendCommand('._-hachures p s a s n a o i o h o ' '\n')
-              acad.ActiveDocument.SendCommand('._clayer GEX_EDS_sdp_teinte_contour ' '\n')
-              acad.ActiveDocument.SendCommand('._-hachures s sel ' )
-              acad.ActiveDocument.SendCommand('._clayer GEX_EDS_sdp_SDP_su ' '\n')  
+              acad.ActiveDocument.SendCommand('._HACHURES p s a s n a o i o h o ' '\n')
+              acad.ActiveDocument.SendCommand('._CLAYER GEX_EDS_sdp_teinte_contour ' '\n')
+              acad.ActiveDocument.SendCommand('._HACHURES s sel ' )
+              acad.ActiveDocument.SendCommand('._CLAYER GEX_EDS_sdp_SDP_su ' '\n')  
         
         #_________________________    Surfaces Locaux techniques    _____________________ 
         def surface_Locaux_techniques():
               get__layer_teinte_contour = acad.ActiveDocument.SendCommand('._-layer E 0 g * l GEX_EDS_sdp_2-tremie l GEX_EDS_sdp_2-tremie_su ' ) 
               print("_Surfaces  Planchers avant déductions est : ", get__layer_teinte_contour)
-              acad.ActiveDocument.SendCommand('._-hachures p s a s n a o i o h o ' '\n')
-              acad.ActiveDocument.SendCommand('._clayer GEX_EDS_sdp_teinte_contour ' '\n')
-              acad.ActiveDocument.SendCommand('._-hachures s sel ' )
-              acad.ActiveDocument.SendCommand('._clayer GEX_EDS_sdp_SDP_su ' '\n')
+              acad.ActiveDocument.SendCommand('._HACHURES p s a s n a o i o h o ' '\n')
+              acad.ActiveDocument.SendCommand('._CLAYER GEX_EDS_sdp_teinte_contour ' '\n')
+              acad.ActiveDocument.SendCommand('._HACHURES s sel ' )
+              acad.ActiveDocument.SendCommand('._CLAYER GEX_EDS_sdp_SDP_su ' '\n')
         #_____________________________    Surfaces Caves    ______________________________ 
         def surface_Caves():
               get__layer_teinte_contour = acad.ActiveDocument.SendCommand('._-layer E 0 g * l GEX_EDS_sdp_2-tremie l GEX_EDS_sdp_2-tremie_su ' ) 
               print("_Surfaces  Planchers avant déductions est : ", get__layer_teinte_contour)
-              acad.ActiveDocument.SendCommand('._-hachures p s a s n a o i o h o ' '\n')
-              acad.ActiveDocument.SendCommand('._clayer GEX_EDS_sdp_teinte_contour ' '\n')
-              acad.ActiveDocument.SendCommand('._-hachures s sel ' )
-              acad.ActiveDocument.SendCommand('._clayer GEX_EDS_sdp_SDP_su ' '\n')
+              acad.ActiveDocument.SendCommand('._HACHURES p s a s n a o i o h o ' '\n')
+              acad.ActiveDocument.SendCommand('._CLAYER GEX_EDS_sdp_teinte_contour ' '\n')
+              acad.ActiveDocument.SendCommand('._HACHURES s sel ' )
+              acad.ActiveDocument.SendCommand('._CLAYER GEX_EDS_sdp_SDP_su ' '\n')
 
         #_________________________Apres la calcul des différentes surfaces________________
         def Total_surface():
@@ -326,11 +467,83 @@ def sdp():
             surface_Locaux_techniques()
             surface_Caves()
             acad.ActiveDocument.SendCommand('._-layer l * E 0 g GEX_EDS_sdp_teinte_contour ''\n')
-            
-            def getCalqueAppliqueApplatSDP(): 
-                print(' def getCalqueAppliqueApplatSDP():')
 
-			 
+            def getCalqueAppliqueApplatSDP():
+                print(calqueC)
+                sel1 = [(0,"HATCH"), (8, calqueC)] 
+                acad.ActiveDocument.SendCommand('_draworder p _back')
+                #les variables de calcul
+                ind = 0
+                surftotal = 0
+                surfad = 0
+                somme = 0
+               # if (sel1 != 0):
+                  #while ind in range(sel1):
+                    #s1 = nm[1: ]
+                   # entite  =  nm[]
+
+
+            def SDT():
+              #================Ajouter meme style surf  que charte graphique ================
+               acad.TextStyleName = ("Standard" "SURF")
+               total_val_text_SP = getDesignationEtAfficheValeursdp("GEX_EDS_sdp_SDP_su", "SP")
+               total_val_text_V =  getDesignationEtAfficheValeursdp("GEX_EDS_sdp_2-tremie_su", "V")
+               total_val_text_180 = getDesignationEtAfficheValeursdp("GEX_EDS_sdp_5-PK_su","ST")
+               total_val_text_TA  = int("{:.2f}".total_val_text_SP)-int("{:.2f}".total_val_text_V)-int("{:.2f}".total_val_text_180)
+               total_val_text_TA  = "{:.2f}".total_val_text_TA
+               acad.SendCommand('_attendit N N SDP TA 0 0 ', total_val_text_TA)
+
+               total_val_text_ST = getDesignationEtAfficheValeursdp("GEX_EDS_sdp_5-PK_su" ,"ST")
+               total_val_text_CO = getDesignationEtAfficheValeursdp("GEX_EDS_sdp_6-combles_su", "CO")
+               total_val_text_LT = getDesignationEtAfficheValeursdp("GEX_EDS_sdp_7-LT_su" ,"LT")
+               total_val_text_c = getDesignationEtAfficheValeursdp("GEX_EDS_sdp_8-cave_su" ,"C")
+               choix = acad.ActiveDocument.SendCommand('_getkword \n Type du batiment (Locaux (L), Habitation(H), Mixte (M)): <Locaux> ')
+               if (choix == "M"):
+                total_val_text_i  =  int(acad.ActiveDocument.SendCommand(''))*0.10
+               elif (choix == "H"):
+                total_val_text_i  =  (total_val_text_TA-(total_val_text_LT + total_val_text_c + total_val_text_CO + total_val_text_ST))*0.10
+               elif(choix == "L"):
+                total_val_text_i= 0.0
+               else:
+                 choix == "L"
+               acad.ActiveDocument.SendCommand('_attendit N N SDP ISOL 0 0')
+               print('valeur d''isolation is', int(total_val_text_i) )
+
+            def getDesignationEtAfficheValeursdp(calqueC , texte):
+              ind = 0 
+              total_val = 0 
+              total = 0
+              sel_SP = [[8 , calqueC],[0, "TEXT"]]
+              #if (sel_SP != None):
+                #while(sel_SP):
+                  #val_text_SP = nm[1:]
+              acad.ActiveDocument.SendCommand('-attedit N N SDP texte 0 0', int(total_val))
+
+
+            def sd0(): #  vider la table de la charte graphique
+               acad.ActiveDocument.SendCommand('._-attedit N N SDP SP ')
+               acad.ActiveDocument.SendCommand('_regen ')
+               acad.ActiveDocument.SendCommand('._-attedit N N SDP V ')
+               acad.ActiveDocument.SendCommand('_regen ')
+               acad.ActiveDocument.SendCommand('._-attedit N N SDP 180 ')
+               acad.ActiveDocument.SendCommand('_regen ')
+               acad.ActiveDocument.SendCommand('._-attedit N N SDP TA ')
+               acad.ActiveDocument.SendCommand('_regen ')
+               acad.ActiveDocument.SendCommand('._-attedit N N SDP ST ')
+               acad.ActiveDocument.SendCommand('_regen ')
+               acad.ActiveDocument.SendCommand('._-attedit N N SDP CO ')
+               acad.ActiveDocument.SendCommand('_regen ')
+               acad.ActiveDocument.SendCommand('._-attedit N N SDP LT ')
+               acad.ActiveDocument.SendCommand('_regen ')
+               acad.ActiveDocument.SendCommand('._-attedit N N SDP C ')
+               acad.ActiveDocument.SendCommand('_regen ')
+               acad.ActiveDocument.SendCommand('._-attedit N N SDP ISOL ')
+               acad.ActiveDocument.SendCommand('_regen ')
+               acad.ActiveDocument.SendCommand('._-attedit N N SDP SDP ')
+               acad.ActiveDocument.SendCommand('_regen ')
+
+			      
+
 
              
              
@@ -343,7 +556,30 @@ def sdp():
         
         
         #Affiche__layer()
-        if__calque__exist()
+        layers_nums = acad.ActiveDocument.Layers.count 
+        layers_names = [acad.ActiveDocument.Layers.Item(i).Name for i in range(layers_nums)] 
+
+        iterated_index_list = iterated_index(layers_names, "GEX_EDS_sdp_2-tremie")
+        iterated_index_list = iterated_index(layers_names, "GEX_EDS_sdp_3-h-180")
+        iterated_index_list = iterated_index(layers_names, "GEX_EDS_sdp_5-pk")
+        iterated_index_list = iterated_index(layers_names, "GEX_EDS_sdp_6-combles")
+        iterated_index_list = iterated_index(layers_names, "GEX_EDS_sdp_7-lt")
+        iterated_index_list = iterated_index(layers_names, "GEX_EDS_sdp_8-cave")
+        iterated_index_list = iterated_index(layers_names, "GEX_EDS_sdp_teinte_contour")
+        iterated_index_list = iterated_index(layers_names, "GEX_EDS_sdp_SDP_su")
+        iterated_index_list = iterated_index(layers_names, "GEX_EDS_sdp_2-tremie_su")
+        iterated_index_list = iterated_index(layers_names, "GEX_EDS_sdp_3-h-180_su")
+        iterated_index_list = iterated_index(layers_names, "GEX_EDS_sdp_5-pk_su")
+        iterated_index_list = iterated_index(layers_names, "GEX_EDS_sdp_6-combles_su")
+        iterated_index_list = iterated_index(layers_names, "GEX_EDS_sdp_7-lt_su")
+        iterated_index_list = iterated_index(layers_names, "GEX_EDS_sdp_8-cave_su")
+    
+
+        print(iterated_index_list,"test___list")
+        print(layers_names)
+       
+        #iterated_index_layer()
+        #if__calque__exist()
         layers_nums = acad.ActiveDocument.Layers.count  
         print(layers_nums)
         surface_plancher_ded()
