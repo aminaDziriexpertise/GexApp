@@ -23,78 +23,79 @@ def sdp():
             for i in range(layers_nums):
              layers_names = [acad.ActiveDocument.Layers.Item(i).Name ]
              #print(layers_nums)
-            for s in layers_names:
-                if s != ('GEX_EDS_sdp_2-tremie'):
+             #print(layers_names)
+           
+            if layers_names != ['GEX_EDS_sdp_2-tremie']:
                     #acad.ActiveDocument.Layers.Add('GEX_EDS_sdp_2-tremie')
                     command_str_tremie = '.-layer n GEX_EDS_sdp_2-tremie  \n  CO U 255,255,127 GEX_EDS_sdp_2-tremie \n ' #  Notice that the last SPACE is equivalent to hiting ENTER   
                     acad.ActiveDocument.PostCommand(command_str_tremie)
-                elif s != ('GEX_EDS_sdp_3-h-180'):
+            if layers_names != ['GEX_EDS_sdp_3-h-180']:
                      #acad.ActiveDocument.Layers.Add('GEX_EDS_sdp_3-h-180')
                     command_str_h_180 = '.-layer n GEX_EDS_sdp_3-h-180  \n  CO U 165,82,82 GEX_EDS_sdp_3-h-180 \n ' #  Notice that the last SPACE is equivalent to hiting ENTER   
                     acad.ActiveDocument.PostCommand(command_str_h_180)
                      
-                elif s != ('GEX_EDS_sdp_5-pk'):
+            if layers_names != ['GEX_EDS_sdp_5-pk']:
                     #acad.ActiveDocument.Layers.Add('GEX_EDS_sdp_5-pk')
                     command_str_pk = '.-layer n GEX_EDS_sdp_5-pk  \n  CO U 153,153,153 GEX_EDS_sdp_5-pk \n ' #  Notice that the last SPACE is equivalent to hiting ENTER   
                     acad.ActiveDocument.PostCommand(command_str_pk)
                  
-                elif s!=('GEX_EDS_sdp_6-combles'):
+            if layers_names !=['GEX_EDS_sdp_6-combles']:
                     #acad.ActiveDocument.Layers.Add('GEX_EDS_sdp_6-combles')
                     command_str_comble = '.-layer n GEX_EDS_sdp_6-combles  \n  CO U 82,0,165 GEX_EDS_sdp_6-combles \n ' #  Notice that the last SPACE is equivalent to hiting ENTER   
                     acad.ActiveDocument.PostCommand(command_str_comble)
                     
-                elif s!=('GEX_EDS_sdp_7-lt'):
+            if layers_names !=['GEX_EDS_sdp_7-lt']:
                     #acad.ActiveDocument.Layers.Add('GEX_EDS_sdp_7-lt')
                     command_str_lt = '.-layer n GEX_EDS_sdp_7-lt  \n  CO U 0,127,255 GEX_EDS_sdp_7-lt \n ' #  Notice that the last SPACE is equivalent to hiting ENTER   
                     acad.ActiveDocument.PostCommand(command_str_lt)
                     
-                elif s!=('GEX_EDS_sdp_8-cave'):
+            if layers_names !=['GEX_EDS_sdp_8-cave']:
                     #acad.ActiveDocument.Layers.Add('GEX_EDS_sdp_8-cave')
                     command_str_lt = '.-layer n GEX_EDS_sdp_8-cave  \n  CO U 255,191,127 GEX_EDS_sdp_8-cave \n ' #  Notice that the last SPACE is equivalent to hiting ENTER   
                     acad.ActiveDocument.PostCommand(command_str_lt)
                     
-                elif s!=('GEX_EDS_sdp_teinte_contour'):
+            if layers_names !=['GEX_EDS_sdp_teinte_contour']:
                     #acad.ActiveDocument.Layers.Add('GEX_EDS_sdp_teinte_contour')
                     command_str_teinte_contours = '.-layer n GEX_EDS_sdp_teinte_contour  \n  CO U 255,127,127 GEX_EDS_sdp_teinte_contour \n ' #  Notice that the last SPACE is equivalent to hiting ENTER   
                     acad.ActiveDocument.PostCommand(command_str_teinte_contours)
                 
-                elif s!=('GEX_EDS_sdp_SDP_su'):
+            if layers_names !=['GEX_EDS_sdp_SDP_su']:
                     #acad.ActiveDocument.Layers.Add('GEX_EDS_sdp_SDP_su')
                     command_str_SDP_su = '.-layer n GEX_EDS_sdp_SDP_su  \n  CO U 255,0,0 GEX_EDS_sdp_SDP_su \n ' #  Notice that the last SPACE is equivalent to hiting ENTER   
                     acad.ActiveDocument.PostCommand(command_str_SDP_su)
                     
-                elif s!=('GEX_EDS_sdp_2-tremie_su'):
+            if layers_names !=['GEX_EDS_sdp_2-tremie_su']:
                     #acad.ActiveDocument.Layers.Add('GEX_EDS_sdp_2-tremie_su')
                     command_str_tremie_su = '.-layer n GEX_EDS_sdp_2-tremie_su  \n  _color 7 GEX_EDS_sdp_2-tremie_su \n ' #  Notice that the last SPACE is equivalent to hiting ENTER   
                     acad.ActiveDocument.PostCommand(command_str_tremie_su)
                     
-                elif s!=('GEX_EDS_sdp_3-h-180_su'):
+            if layers_names !=['GEX_EDS_sdp_3-h-180_su']:
                     #acad.ActiveDocument.Layers.Add('GEX_EDS_sdp_3-h-180_su')
                     command_str_h_180_su = '.-layer n GEX_EDS_sdp_3-h-180_su  \n  _color 7 GEX_EDS_sdp_3-h-180_su \n ' #  Notice that the last SPACE is equivalent to hiting ENTER   
                     acad.ActiveDocument.PostCommand(command_str_h_180_su)
                    
-                elif s!=('GEX_EDS_sdp_5-pk_su'):
+            if layers_names !=['GEX_EDS_sdp_5-pk_su']:
                     #acad.ActiveDocument.Layers.Add('GEX_EDS_sdp_5-pk_su')
                     command_str_pk_su = '.-layer n GEX_EDS_sdp_5-pk_su  \n  _color 7 GEX_EDS_sdp_5-pk_su \n ' #  Notice that the last SPACE is equivalent to hiting ENTER   
                     acad.ActiveDocument.PostCommand(command_str_pk_su)
                  
-                elif s!=('GEX_EDS_sdp_6-combles_su'):
+            if layers_names !=['GEX_EDS_sdp_6-combles_su']:
                     #acad.ActiveDocument.Layers.Add('GEX_EDS_sdp_6-combles_su')
                     command_str_combles_su = '.-layer n GEX_EDS_sdp_6-combles_su  \n  _color 7 GEX_EDS_sdp_6-combles_su \n ' #  Notice that the last SPACE is equivalent to hiting ENTER   
                     acad.ActiveDocument.PostCommand(command_str_combles_su)
                     
-                elif s!=('GEX_EDS_sdp_7-lt_su'):
+            if layers_names !=['GEX_EDS_sdp_7-lt_su']:
                     #acad.ActiveDocument.Layers.Add('GEX_EDS_sdp_7-lt_su')
                     command_str_lt_su = '.-layer n GEX_EDS_sdp_7-lt_su  \n  _color 7 GEX_EDS_sdp_7-lt_su \n ' #  Notice that the last SPACE is equivalent to hiting ENTER   
                     acad.ActiveDocument.PostCommand(command_str_lt_su)
-                else :
+            if  layers_names !=['GEX_EDS_sdp_8-cave_su']:
                     #acad.ActiveDocument.Layers.Add('GEX_EDS_sdp_8-cave_su')
                     command_str_cave_su = '.-layer n GEX_EDS_sdp_8-cave_su  \n  _color 7 GEX_EDS_sdp_8-cave_su \n ' #  Notice that the last SPACE is equivalent to hiting ENTER   
                     acad.ActiveDocument.PostCommand(command_str_cave_su)
 
                     
 
-                layers_nums = acad.ActiveDocument.Layers.count 
+            layers_nums = acad.ActiveDocument.Layers.count 
                # print(layers_names)
                # print(layers_nums)
 
@@ -128,7 +129,19 @@ def sdp():
                    # else:
                       # print("False")
               #acad.ActiveDocument.Layers.Add("GEX_EDS_sdp_2-tremie")
-     
+    def getLayersdp(searchparamtext):
+        searchparam = '*'+ searchparamtext +'*' # concat strings
+        newelem = 0
+        while  (newelem  in searchparamtext) & (searchparamtext!= None) :
+            if (newelem[2])
+            if acad.ActiveDocument.PostCommand('(wcmatch (cdr (assoc 2 newelem)) searchparam)')
+
+        searchparam = acad.ActiveDocument.PostCommand('tblnext layer ')
+
+
+
+
+
     def calcul_surface(element):
               acad.ActiveDocument.SendCommand("(setq sel (SSGET\"_X\"'((-4 . \"<OR\")(-4 . \"<AND\")(0 . \"*LWPOLYLINE\")(8 . \"element\")(-4 . \"AND>\")(0 . \"CIRCLE\")(8 . \"element\")(-4 . \"AND>\")(-4 . \"OR>\")))) ")
 
@@ -138,8 +151,17 @@ def sdp():
     ## Surfaces  Planchers avant déductions
     def surface_plancher_ded():
            
+              
               #acad.ActiveDocument.SendCommand('-calque E  GEX_EDS_sdp_2-tremie_su     \n ') #affecter calque courant: GEX_EDS_sdp_2-tremie_su
-              acad.ActiveDocument.SendCommand('.-layer E 'f'{0}'' \n  g * \n  l  GEX_EDS_sdp_teinte_contour \n  l GEX_EDS_sdp_SDP_su \n '  ) 
+              command_str = '.-layer E 'f'{0}'' \n  g * \n  l  GEX_EDS_sdp_teinte_contour \n  l GEX_EDS_sdp_SDP_su \n ' 
+              liste = acad.ActiveDocument.PostCommand(command_str)
+              #acad.ActiveDocument.SendCommand('.-layer E 'f'{0}'' \n  g * \n  l  GEX_EDS_sdp_teinte_contour \n  l GEX_EDS_sdp_SDP_su \n '  ) 
+              for element in liste:
+                 acad.ActiveDocument.PostCommand('.-calque ch  'f'{0}'' \n ')
+                 acad.ActiveDocument.PostCommand('.-calque l  'f'{element}'' \n ')
+                 
+              
+              
               layers_nums = acad.ActiveDocument.Layers.count   #  {{{acad.doc.Layers.count}}} are the same  # The total number of layers contained in the current file model space
               for i in range(layers_nums):
                  layers_names = [acad.ActiveDocument.Layers.Item(i).Name ]

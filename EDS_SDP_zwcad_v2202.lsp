@@ -279,7 +279,7 @@
 ;===============================================
 ;;; search all layers with certain caracter
 (defun getLayersdp (searchparamtext)
-	(setq searchparam (strcat "*" searchparamtext "*"))
+	(setq searchparam (strcat "*" searchparamtext "*")) ; concat strings
 	
 	(while (/= (setq newelem (tblnext "layer")) nil); Start loop for remaining layers
 		(if (= (wcmatch (cdr (assoc 2 newelem)) searchparam) T) (setq newelem (list (cdr (assoc 2 newelem)))) (setq newelem nil)); Check each Layer
@@ -291,6 +291,29 @@
 	(princ laylist)
 )
   
+
+
+ 
+;; Get Layer List   
+;; from Drawing
+(defun C:S-Layers ( / newelem laylist searchparam listlength searchparamtext)
+  (setq searchparamtext (getstring T "\nEnter Layer search parameter: "))
+  (setq searchparam (strcat "*" searchparamtext "*"))
+  (setq newelem (tblnext "layer" T)); Get first Layer
+  (if (= (wcmatch (cdr (assoc 2 newelem)) searchparam) T) (setq newelem (cdr (assoc 2 (tblnext "layer" T)))) (setq newelem nil)); Start Layer List
+  (if (/= nil newelem) (setq laylist (append laylist newelem))); Add to Layer list if appropriate
+  (while (/= (setq newelem (tblnext "layer")) nil); Start loop for remaining layers
+  (if (= (wcmatch (cdr (assoc 2 newelem)) searchparam) T) (setq newelem (list (cdr (assoc 2 newelem)))) (setq newelem nil)); Check each Layer
+  (if (/= nil newelem) (setq laylist (append laylist newelem)))); Add to Layer list if appropriate
+  (setq laylist (acad_strlsort laylist))
+  (setq listlength (rtos (length laylist) 2 0))
+  (alert (strcat "There are " listlength " layers that contain \"" searchparamtext "\""))
+  )
+
+
+
+
+
   
 ;===================================================
 ; 				SDT  :  TABLEAU SDP
