@@ -1,0 +1,28 @@
+(vl-load-com)
+
+(vlax-for x (vla-get-TextStyles
+       (vla-get-activedocument (vlax-get-acad-object))
+     )
+  (princ)
+  (vla-setfont x "Arial Narrow" :vlax-False :vlax-False 0 32)
+)
+(Command "-style" "ArialN" "ArialN.ttf" "0" "1" "0" "N" "N")
+(defun c:ChangeTxtStyle (/ a ts n index b1 b c d b2)
+ (setq a (ssget "_X" '((0 . "*TEXT,ATTDEF"))))
+ (setq ts "ArialN")
+ (setq n (sslength a))
+ (setq index 0)
+  (repeat n
+   (setq b1 (entget (ssname a index)))
+   (setq index (1+ index))
+   (setq b (assoc 0 b1))
+    (if (= "TEXT" (cdr b))
+     (progn
+      (setq c (assoc 7 b1))
+      (setq d (cons (car c) ts))
+      (setq b2 (subst d c b1))
+      (entmod b2)
+     )
+    )
+  )
+)
