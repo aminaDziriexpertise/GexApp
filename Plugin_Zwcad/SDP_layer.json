@@ -1,0 +1,34 @@
+ {
+    
+
+   "SDP_layers": [
+        { "GEX_EDS_sdp_2-tremie":{"red": 255, "green": 255,"blue": 127 }, "style":"CO", "epaisseur": "U" },
+        { "GEX_EDS_sdp_3-h-180":{ "red": 165, "green": 82,"blue": 82 }, "style":"CO", "epaisseur": "U" },
+        {  "GEX_EDS_sdp_5-pk":{ "red": 153, "green": 153,"blue": 153 }, "style":"CO", "epaisseur": "U" },
+        { "GEX_EDS_sdp_6-combles":{ "red": 82, "green": 0,"blue": 165} , "style":"CO", "epaisseur": "U" },
+        { "GEX_EDS_sdp_7-lt": { "red": 0, "green": 127,"blue": 255} ,  "style":"CO", "epaisseur": "U" },
+        { "GEX_EDS_sdp_8-cave": { "red": 255, "green": 191,"blue": 127} , "style":"CO", "epaisseur": "U" },
+        { "GEX_EDS_sdp_teinte_contour": { "red": 255, "green": 127,"blue": 127} ,  "style":"CO", "epaisseur": "U" },
+        { "GEX_EDS_sdp_SDP_su":{  "red": 255, "green": 0,"blue": 0} ,  "style":"CO", "epaisseur": "U" },
+        { "GEX_EDS_sdp_2-tremie_su":{ "Color": "_color" , "epaisseur": "7" }},
+        { "GEX_EDS_sdp_3-h-180_su": { "Color": "_color", "epaisseur": "7" }},
+        { "GEX_EDS_sdp_5-pk_su":{ "Color": "_color", "epaisseur": "7" }},
+        { "GEX_EDS_sdp_6-combles_su":{ "Color": "_color", "epaisseur": "7" }},
+        { "GEX_EDS_sdp_7-lt_su": { "Color": "_color",  "epaisseur": "7" }},
+        { "GEX_EDS_sdp_8-cave_su":{ "Color": "_color",  "epaisseur": "7" }}
+
+   ],
+
+
+   "SHO_layers": [
+    { "GEX_EDS_shob_contour":{"red": 255, "green": 255,"blue": 127} , "style":"CO", "epaisseur": "U" },
+    { "GEX_EDS_shob_tremie":{ "red": 165, "green": 82,"blue": 82 }, "style":"CO", "epaisseur": "U" },
+    {  "GEX_EDS_shon_h-180":{ "red": 153, "green": 153,"blue": 153 }, "style":"CO", "epaisseur": "U" },
+    { "GEX_EDS_shon_snc":{ "red": 82, "green": 0,"blue": 165} , "style":"CO", "epaisseur": "U" }
+ 
+
+]
+
+}
+        
+   

@@ -22,6 +22,8 @@
   (setq hole "site")					;preset hole type
  
   (setq siz "M20")					;preset hole size
+  
+ 
  
   (setq NAMES_type '("Prédeterminé" "Défini par l'utilisateur" "Personnalisé" )		;define list
   );setq
@@ -38,13 +40,7 @@
     (exit)						;exit if no dialog
  
   );if
- 
-  (setq w (dimx_tile "im")				;get image tile width
-        h (dimy_tile "im")				;get image tile height
- 
-);setq
- 
- 
+
   (start_list "selections__T")				;start the list box
   (mapcar 'add_list NAMES_type)				;fill the list box
   (end_list)						;end list

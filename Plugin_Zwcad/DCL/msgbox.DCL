@@ -7,6 +7,7 @@ hello  : dialog {
 
 
 plugin : dialog {				//dialog name
+          
       label = "Plugin Zwcad" ;		//give it a label
       height = 30;
       width = 30; 
@@ -25,6 +26,7 @@ plugin : dialog {				//dialog name
          edit_width = 10 ;
 
         }
+    
 
 
         }
@@ -66,11 +68,50 @@ plugin : dialog {				//dialog name
         }					//end definition
  
         }					//end boxed row
-
-
-        
- 
        }					//end row
+        : row {
+              label = "&Style" ;	
+              : column {
+            
+            
+                 : text {
+                    label="Used Styles";
+                 }
+                 : list_box {
+                    key="used_styles";
+                    multiple_select=false ;
+                 }
+              }
+              : column {
+            
+            
+                 : text {
+                    label="Existing Styles";
+                 }
+                 : list_box {
+                    key="existing_styles";
+                 }
+              }
+           }
+           : row {
+              alignment = centered;
+              fixed_width=true;
+              : button{
+                 label="Change";
+                 key="change";
+                 fixed_width=true;
+                 is_enabled=false;
+                 is_default=true;
+                 width=14;
+              }
+              : button{
+                 label="Cancel";
+                 key="cancel1";
+                 fixed_width=true;
+                 is_cancel=true;
+                 width=14;
+              }
+           }
 
         : row {					//define row
  
@@ -188,7 +229,7 @@ plugin : dialog {				//dialog name
         
         }					//end edit box
 
-       
+      
     
       : row {
 
